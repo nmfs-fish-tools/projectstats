@@ -1,0 +1,42 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# projectstats
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of projectstats is to create an HTML email from Github data pulled from the Github API.
+
+## Installation
+
+You can install the development version of projectstats from [GitHub](https://github.com/) with:
+
+```{r install, eval = FALSE}
+# install.packages("devtools")
+devtools::install_github("nmfs-fish-tools/projectstats")
+```
+
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+```{r example, eval = FALSE}
+library(projectstats)
+## basic example code
+json_full <- get_issues(appname, key, secret, org, repo)
+issues_html <- create_issue_table(json_full)
+pr_html <- create_pr_table(json_full)
+```
