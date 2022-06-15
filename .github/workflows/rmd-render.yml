@@ -23,6 +23,11 @@ jobs:
 
       - uses: r-lib/actions/setup-renv@v1
       
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          extra-packages: any::rmarkdown
+          pak-version: rc
+      
       - name: Render Rmarkdown files
         run: |
           RMD_PATH=($(git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep '[.]Rmd$'))
