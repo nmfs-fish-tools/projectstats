@@ -33,9 +33,27 @@ jobs:
           extra-packages: any::pkgdown, local::.
           needs: website
 
+
+      - name: Install packages
+        run: Rscript -e 'install.packages(c("pkgdown", "roxygen2", "knitr"))'
+
+      - name: Update R function documentation
+        run: Rscript -e 'roxygen2::roxygenize()'
+
+      - name: Update Readme.md
+        run: Rscript -e 'knitr::knit("Readme.Rmd")'
+
       - name: Build site
-        run: pkgdown::build_site_github_pages(new_process = FALSE, install = FALSE)
-        shell: Rscript {0}
+        run: Rscript -e 'pkgdown::build_site()'
+
+      - name: Set up Git
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+      - name: Commit all changes
+        run: |
+          git add -A && git commit -m 'Build site' || echo "No changes to commit"
+          git push origin || echo "No changes to commit"
 
       - name: Deploy to GitHub pages 🚀
         if: github.event_name != 'pull_request'
