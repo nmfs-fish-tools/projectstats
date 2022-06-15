@@ -1,3 +1,16 @@
+#' Query the Github API
+#' 
+#' This function takes as input the Github API app name, the Github API
+#' key, the corresponding secret, the organization and repo name, and uses
+#' the Github api and \code{httr} package to query the API for the issues
+#' in that repository.
+#'
+#' @param appname_ The name of the application you have authorized on Github.
+#' @param key_ The key you have authorized on Github.
+#' @param secret_ The secret corresponding to the key.
+#' @param org_name The organization or username the repo is stored under.
+#' @param repo_name The name of the repository
+#' @return A \code{json} list of returned issues from Github.
 get_issues <- function(appname_, key_, secret_, org_name, repo_name) {
 
   # Change based on what you
