@@ -50,8 +50,39 @@
   </div>
 </nav><div class="container template-home">
 <div class="row">
-  <main id="main" class="col-md-9">
-This uses an API key to retrieve information about pull requests and issues in a Github repository and email about it.
+  <main id="main" class="col-md-9"><div class="section level1">
+<div class="page-header"><h1 id="projectstats">projectstats<a class="anchor" aria-label="anchor" href="#projectstats"></a>
+</h1></div>
+<!-- badges: start --><!-- badges: end --><p>The goal of projectstats is to create an HTML email from Github data pulled from the Github API.</p>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
+<p>You can install the development version of projectstats from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># install.packages("devtools")</span>
+<span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"nmfs-fish-tools/projectstats"</span><span class="op">)</span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
+</h2>
+<p>This is a basic example which shows you how to solve a common problem:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">projectstats</span><span class="op">)</span>
+<span class="co">## basic example code</span>
+<span class="va">json_full</span> <span class="op">&lt;-</span> <span class="fu">get_issues</span><span class="op">(</span><span class="va">appname</span>, <span class="va">key</span>, <span class="va">secret</span>, <span class="va">org</span>, <span class="va">repo</span><span class="op">)</span>
+<span class="va">issues_html</span> <span class="op">&lt;-</span> <span class="fu">create_issue_table</span><span class="op">(</span><span class="va">json_full</span><span class="op">)</span>
+<span class="va">pr_html</span> <span class="op">&lt;-</span> <span class="fu">create_pr_table</span><span class="op">(</span><span class="va">json_full</span><span class="op">)</span></code></pre></div>
+<hr>
+</div>
+<div class="section level2">
+<h2 id="disclaimer">Disclaimer<a class="anchor" aria-label="anchor" href="#disclaimer"></a>
+</h2>
+<p>The United States Department of Commerce (DOC) GitHub project code is provided on an ‘as is’ basis and the user assumes responsibility for its use. DOC has relinquished control of the information and no longer has responsibility to protect the integrity, confidentiality, or availability of the information. Any claims against the Department of Commerce stemming from the use of its GitHub project will be governed by all applicable Federal law. Any reference to specific commercial products, processes, or services by service mark, trademark, manufacturer, or otherwise, does not constitute or imply their endorsement, recommendation or favoring by the Department of Commerce. The Department of Commerce seal and logo, or the seal and logo of a DOC bureau, shall not be used in any manner to imply endorsement of any commercial product or activity by DOC or the United States Government.”</p>
+<hr>
+<p><img src="https://raw.githubusercontent.com/nmfs-general-modeling-tools/nmfspalette/main/man/figures/noaa-fisheries-rgb-2line-horizontal-small.png" height="75" alt="NOAA Fisheries"></p>
+<p><a href="https://www.commerce.gov/" class="external-link">U.S. Department of Commerce</a> | <a href="https://www.noaa.gov" class="external-link">National Oceanographic and Atmospheric Administration</a> | <a href="https://www.fisheries.noaa.gov/" class="external-link">NOAA Fisheries</a></p>
+</div>
+</div>
   </main><aside class="col-md-3"><div class="license">
 <h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
