@@ -13,6 +13,12 @@
     <loc>/index.html</loc>
   </url>
   <url>
+    <loc>/reference/create_issue_table.html</loc>
+  </url>
+  <url>
+    <loc>/reference/get_issues.html</loc>
+  </url>
+  <url>
     <loc>/reference/index.html</loc>
   </url>
 </urlset>
