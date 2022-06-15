@@ -54,11 +54,3 @@ jobs:
         run: |
           git add -A && git commit -m 'Build site' || echo "No changes to commit"
           git push origin || echo "No changes to commit"
-
-      - name: Deploy to GitHub pages 🚀
-        if: github.event_name != 'pull_request'
-        uses: JamesIves/github-pages-deploy-action@4.1.4
-        with:
-          clean: false
-          branch: gh-pages
-          folder: docs
