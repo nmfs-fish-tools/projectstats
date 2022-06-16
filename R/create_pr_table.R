@@ -18,7 +18,7 @@ create_pr_table <- function(json_input) {
   )
 
   k <- j <- 1
-  for (i in seq_len(length(sub))) {
+  for (i in seq_len(nrow(sub))) {
     if (!is.null(sub[i, ]$pull_request$url[[1]])) {
       pr_table[j, ]$number <- sub[i, "number"][[1]]
       pr_table[j, ]$title <- sub[i, "title"][[1]]

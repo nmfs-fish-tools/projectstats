@@ -18,7 +18,7 @@ create_issue_table <- function(json_input) {
     "assignee" = NA, "labels" = NA, "label_col" = NA, "status" = NA
   )
   k <- j <- 1
-  for (i in seq_len(length(sub))) {
+  for (i in seq_len(nrow(sub))) {
     if (is.null(sub[i, ]$pull_request$url[[1]])) {
       issue_table[k, ]$number <- sub[i, "number"][[1]]
       issue_table[k, ]$title <- sub[i, "title"][[1]]
@@ -38,11 +38,14 @@ create_issue_table <- function(json_input) {
   issue_txt <- knitr::kable(subset(issue_table, select = -c(label_col)),
     row.names = FALSE,
     format = "html", align = "l"
-  ) |>
+  ) 
+  
+  if(!is.na(issue_table$milestone[1])) {
+    issue_txt <- issue_txt |>
     kableExtra::pack_rows(index = c(
       "milestone 1" = miles[1] - 1,
       "milestone 2" = length(miles)
     ))
-
+  }
   return(issue_txt)
 }

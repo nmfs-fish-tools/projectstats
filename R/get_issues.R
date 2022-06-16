@@ -8,10 +8,9 @@
 #' @param appname_ The name of the application you have authorized on Github.
 #' @param key_ The key you have authorized on Github.
 #' @param secret_ The secret corresponding to the key.
-#' @param org_name The organization or username the repo is stored under.
 #' @param repo_name The name of the repository
 #' @return A \code{json} list of returned issues from Github.
-get_issues <- function(appname_, key_, secret_, org_name, repo_name) {
+get_issues <- function(appname_, key_, secret_, repo_name) {
 
   # Change based on what you
   myapp <- httr::oauth_app(
@@ -28,7 +27,7 @@ get_issues <- function(appname_, key_, secret_, org_name, repo_name) {
   gtoken <- httr::config(token = github_token)
   req <- httr::GET(file.path(
     "https://api.github.com/repos",
-    org_name, repo_name, "issues"
+    repo_name, "issues"
   ), gtoken)
 
 
