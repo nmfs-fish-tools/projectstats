@@ -1,0 +1,24 @@
+#' Builds and sends the email
+#' 
+#' This function compiles the tables with some email text and sends it
+#' using \code{blastula::smtp_send.}
+#' 
+#' @param from_ sender email address
+#' @param to_ recipient email address
+#' @param creds A credential file of the type supported by code{blastula}
+#' @seealso [blastula::creds]
+#' @param body_ The text to precede the table
+#' @param table_iss the issue table
+#' @param table_pr The PR table
+#' @param footer_ the text to follow the table
+#' @return the email body
+#' @export
+build_email <- function(from_, to_, creds, body_, table_iss, table_pr, footer_) {
+  email <- blastula::compose_email(
+    body = blastula::md(body, table_iss, table_pr),
+    footer = blastula::md(footer_)
+  )
+  blastula::smtp_send(from = from_, to = to_, credentials = creds,
+  email = email)
+  return(email)
+}

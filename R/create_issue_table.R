@@ -35,12 +35,11 @@ create_issue_table <- function(json_input) {
 
   issue_table <- issue_table[order(issue_table$milestone), ]
   miles <- which(issue_table$milestone == 2)
-  require(kableExtra)
   issue_txt <- knitr::kable(subset(issue_table, select = -c(label_col)),
     row.names = FALSE,
     format = "html", align = "l"
   ) |>
-    pack_rows(index = c(
+    kableExtra::pack_rows(index = c(
       "milestone 1" = miles[1] - 1,
       "milestone 2" = length(miles)
     ))
