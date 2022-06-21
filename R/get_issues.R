@@ -10,6 +10,7 @@
 #' @param secret_ The secret corresponding to the key.
 #' @param repo_name The name of the repository
 #' @return A \code{json} list of returned issues from Github.
+#' @export
 get_issues <- function(appname_, key_, secret_, repo_name) {
 
   # Change based on what you

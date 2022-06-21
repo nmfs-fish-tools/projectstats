@@ -7,6 +7,7 @@
 #'
 #' @param json_input A \code{json} table generated from the Github API.
 #' @return A \code{html} table of pull requests.
+#' @export
 create_pr_table <- function(json_input) {
   sub <- json_input |> dplyr::select(
     "number", "title", "labels",

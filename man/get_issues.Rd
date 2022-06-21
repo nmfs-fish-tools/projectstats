@@ -4,7 +4,7 @@
 \alias{get_issues}
 \title{Query the Github API}
 \usage{
-get_issues(appname_, key_, secret_, org_name, repo_name)
+get_issues(appname_, key_, secret_, repo_name)
 }
 \arguments{
 \item{appname_}{The name of the application you have authorized on Github.}
@@ -12,8 +12,6 @@ get_issues(appname_, key_, secret_, org_name, repo_name)
 \item{key_}{The key you have authorized on Github.}
 
 \item{secret_}{The secret corresponding to the key.}
-
-\item{org_name}{The organization or username the repo is stored under.}
 
 \item{repo_name}{The name of the repository}
 }
