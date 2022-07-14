@@ -1,8 +1,8 @@
 pandoc: 2.7.3
-pkgdown: 2.0.4
+pkgdown: 2.0.5
 pkgdown_sha: ~
 articles: {}
-last_built: 2022-06-21T23:00Z
+last_built: 2022-07-14T00:08Z
 urls:
   reference: https://nmfs-fish-tools.github.io/projectstats/reference
   article: https://nmfs-fish-tools.github.io/projectstats/articles
