@@ -10,6 +10,13 @@
 #' @param secret_ The secret corresponding to the key.
 #' @param repo_name The name of the repository
 #' @return A \code{json} list of returned issues from Github.
+#' @examples
+#' \dontrun{
+#' get_issues(appname_ = "github",
+#' key_ = "56b637a5baffac62cad9",
+#' secret_ = "8e107541ae1791259e9987d544ca568633da2ebf",
+#' repo_name = "r-lib/httr")
+#' }
 #' @export
 get_issues <- function(appname_, key_, secret_, repo_name) {
 
