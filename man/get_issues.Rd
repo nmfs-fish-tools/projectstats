@@ -25,8 +25,10 @@ the Github api and \code{httr} package to query the API for the issues
 in that repository.
 }
 \examples{
+\dontrun{
 get_issues(appname_ = "github",
 key_ = "56b637a5baffac62cad9",
 secret_ = "8e107541ae1791259e9987d544ca568633da2ebf",
 repo_name = "r-lib/httr")
+}
 }
