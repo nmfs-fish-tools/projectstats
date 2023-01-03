@@ -11,7 +11,7 @@
 create_issue_table <- function(json_input) {
   sub <- json_input |> dplyr::select(
     "number", "title", "labels",
-    "milestone", "pull_request", "assignee"
+    "milestone", "assignee"
   )
 
   issue_table <- data.frame(
@@ -20,7 +20,6 @@ create_issue_table <- function(json_input) {
   )
   k <- j <- 1
   for (i in seq_len(nrow(sub))) {
-    if (is.null(sub[i, ]$pull_request$url[[1]])) {
       issue_table[k, ]$number <- sub[i, "number"][[1]]
       issue_table[k, ]$title <- sub[i, "title"][[1]]
       issue_table[k, ]$milestone <- sub[i, ]$milestone$number[[1]]
@@ -31,7 +30,6 @@ create_issue_table <- function(json_input) {
       issue_table[k, ]$label_col <- paste(unlist(sub[i, ]$labels[[1]]$color),
        collapse = ", ")
       k <- k + 1
-    }
   }
 
   issue_table <- issue_table[order(issue_table$milestone), ]

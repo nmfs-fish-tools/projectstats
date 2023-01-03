@@ -18,7 +18,7 @@
 #' repo_name = "r-lib/httr")
 #' }
 #' @export
-get_issues <- function(appname_, key_, secret_, repo_name) {
+get_issues <- function(appname_, key_, secret_, repo_name, type = "issues") {
 
   # Change based on what you
   myapp <- httr::oauth_app(
@@ -35,7 +35,7 @@ get_issues <- function(appname_, key_, secret_, repo_name) {
   gtoken <- httr::config(token = github_token)
   req <- httr::GET(file.path(
     "https://api.github.com/repos",
-    repo_name, "issues"
+    repo_name, type
   ), gtoken)
 
 
