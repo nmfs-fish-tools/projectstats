@@ -9,6 +9,7 @@
 #' @param key_ The key you have authorized on Github.
 #' @param secret_ The secret corresponding to the key.
 #' @param repo_name The name of the repository
+#' @param type The API endpoint you are querying
 #' @return A \code{json} list of returned issues from Github.
 #' @examples
 #' \dontrun{
