@@ -11,21 +11,20 @@
 create_pr_table <- function(json_input) {
   sub <- json_input |> dplyr::select(
     "number", "title", "labels",
-    "milestone", "pull_request", "assignee"
+    "milestone", "requested_reviewers", "assignee", 
   )
   pr_table <- data.frame(
-    "number" = NA, "title" = NA, "assignee" = NA,
+    "number" = NA, "title" = NA, "assignee" = NA, "requested_reviewers" = NA,
     status = NA
   )
 
   k <- j <- 1
   for (i in seq_len(nrow(sub))) {
-    if (!is.null(sub[i, ]$pull_request$url[[1]])) {
       pr_table[j, ]$number <- sub[i, "number"][[1]]
       pr_table[j, ]$title <- sub[i, "title"][[1]]
       pr_table[j, ]$assignee <- sub[i, ]$assignee$login[[1]]
+      pr_table[j, ]$requested_reviewers <- sub[i, ]$requested_reviewers
       j <- j + 1
-    }
   }
 
   return(knitr::kable(pr_table, row.names = FALSE, format = "html"))
