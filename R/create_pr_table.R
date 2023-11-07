@@ -23,7 +23,7 @@ create_pr_table <- function(json_input) {
       pr_table[j, ]$number <- sub[i, "number"][[1]]
       pr_table[j, ]$title <- sub[i, "title"][[1]]
       pr_table[j, ]$assignee <- sub[i, ]$assignee$login[[1]]
-      pr_table[j, ]$requested_reviewers <- sub[i, ]$requested_reviewers$login[[1]]
+      pr_table[j, ]$requested_reviewers <- sub[i, ]$requested_reviewers$login
       j <- j + 1
   }
 
