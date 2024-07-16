@@ -4,7 +4,7 @@
 \alias{get_issues}
 \title{Query the Github API}
 \usage{
-get_issues(appname_, key_, secret_, repo_name)
+get_issues(appname_, key_, secret_, repo_name, type = "issues")
 }
 \arguments{
 \item{appname_}{The name of the application you have authorized on Github.}
@@ -14,6 +14,8 @@ get_issues(appname_, key_, secret_, repo_name)
 \item{secret_}{The secret corresponding to the key.}
 
 \item{repo_name}{The name of the repository}
+
+\item{type}{The API endpoint you are querying}
 }
 \value{
 A \code{json} list of returned issues from Github.
@@ -25,8 +27,12 @@ the Github api and \code{httr} package to query the API for the issues
 in that repository.
 }
 \examples{
-get_issues(appname_ = "github",
-key_ = "56b637a5baffac62cad9",
-secret_ = "8e107541ae1791259e9987d544ca568633da2ebf",
-repo_name = "r-lib/httr")
+\dontrun{
+get_issues(
+  appname_ = "github",
+  key_ = "56b637a5baffac62cad9",
+  secret_ = "8e107541ae1791259e9987d544ca568633da2ebf",
+  repo_name = "r-lib/httr"
+)
+}
 }
