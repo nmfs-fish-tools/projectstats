@@ -3,7 +3,7 @@ name: call-doc-and-style-r
 # on specifies the build triggers. See more info at https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows
 on:
   push:
-    branches: [main, master]
+    branches: [main]
 jobs:
   call-workflow:
     uses: nmfs-fish-tools/ghactions4r/.github/workflows/doc-and-style-r.yml@main
