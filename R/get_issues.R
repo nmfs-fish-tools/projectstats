@@ -1,5 +1,5 @@
 #' Query the Github API
-#' 
+#'
 #' This function takes as input the Github API app name, the Github API
 #' key, the corresponding secret, the organization and repo name, and uses
 #' the Github api and \code{httr} package to query the API for the issues
@@ -13,14 +13,15 @@
 #' @return A \code{json} list of returned issues from Github.
 #' @examples
 #' \dontrun{
-#' get_issues(appname_ = "github",
-#' key_ = "56b637a5baffac62cad9",
-#' secret_ = "8e107541ae1791259e9987d544ca568633da2ebf",
-#' repo_name = "r-lib/httr")
+#' get_issues(
+#'   appname_ = "github",
+#'   key_ = "56b637a5baffac62cad9",
+#'   secret_ = "8e107541ae1791259e9987d544ca568633da2ebf",
+#'   repo_name = "r-lib/httr"
+#' )
 #' }
 #' @export
 get_issues <- function(appname_, key_, secret_, repo_name, type = "issues") {
-
   # Change based on what you
   myapp <- httr::oauth_app(
     appname = appname_,
